@@ -1,0 +1,51 @@
+en
+conf t
+no ip domain lookup
+banner motd "tilos a belepes!"
+enable secret titok
+domain-name suli.lan
+hostname R1
+line con 0
+pass titok
+logi
+line vty 5 15
+pass titok
+logi
+service password-encryption
+crypto key generate rsa
+1024
+username admin secret adminka
+line vty 0 4
+login local
+transport input ssh
+do w
+
+ip default-gateway 
+show ip int brief
+show ip route
+show vlan
+
+DHCP:
+
+ip dhcp excluded-address
+ip dhcp pool 
+network
+default-router
+dns-server
+service dhcp
+
+Több Vlan:
+
+vlan 10 (a 10 csak példa)
+name 
+int range (fa vagy g port)
+switchport mode access/trunk
+swithcport access vlan 10 (aktuális vlan)
+
+Virtuális port:
+
+int g0/0
+no shut
+int g0/0.10
+encapsulation dot1Q 10 (vlan szám)
+ip address , maszk 
