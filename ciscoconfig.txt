@@ -1,0 +1,24 @@
+enable
+no ip domain lookup
+conf t
+enable secret titok
+hostname Sw3
+banner motd "Belépni tilos!"
+line console 0
+password titok
+login
+line vty 5 15
+password titok
+login
+exit
+service password-encryption
+ip domain-name gimi.lan
+crypto key generate rsa
+
+username admin secret titok
+line vty 0 4
+login local
+transport input ssh
+exit
+do copy run sta
+

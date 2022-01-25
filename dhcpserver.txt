@@ -1,0 +1,10 @@
+ing g0/0 v. g0/1
+ip-t adok neki
+no shut
+exit
+ip dhcp excluded-address megadjuk ay intervallumot
+ip dhcp pool (név)
+network ip+maszk
+default-router 192.168.10.1
+dns-server ip
+do copy run sta
